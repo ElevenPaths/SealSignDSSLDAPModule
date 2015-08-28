@@ -14,7 +14,7 @@ Once registered in a Web App, the HTTP module will capture all requests and chec
     * LDAPServiceUser: Server LDAP service user, used to find the DN 
     * LDAPServicePassword:  Server LDAP service password
     * LDAPLogFile: (Optional) Log file path
-
+```xml
     <appSettings>
         <add key="LDAPServer" value="LDAP://dc.domain.local"/>
         <add key="LDAPServiceUser" value="username@domain.local"/>
@@ -22,16 +22,16 @@ Once registered in a Web App, the HTTP module will capture all requests and chec
         <add key="LDAPFilter" value="(sAMAccountName={0})"/>
         <add key="LDAPLogFile" value="c:\temp\ldap.log"/>
     </appSettings>
-
+```
 * Register the HTTP module in web.config:
-
+```xml
     <system.webServer>
         <validation validateIntegratedModeConfiguration="false" />
         <modules>
             <add name="LDAPHttpModule" type="SealSignDSSLibrary.LDAPHttpModule, SealSignDSSLDAPModule"/>
-
+```
 * Register the authorization module in web.config:
-
+```xml
     <behaviors>
         <serviceBehaviors>
             <behavior name="LDAPTest.Service1Behavior">
@@ -47,3 +47,4 @@ Once registered in a Web App, the HTTP module will capture all requests and chec
     </behaviors>
     <serviceHostingEnvironment aspNetCompatibilityEnabled="true" />
 </system.serviceModel>
+```
